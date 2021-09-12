@@ -1,0 +1,37 @@
+digraph G {
+    #splines="FALSE";
+    rankdir=LR
+    #layout=fdp;
+
+    /* Entities */
+    u1 [label="User",shape="star",color="darkgreen",style="dashed",fillcolor="white"]
+    t1 [label="Telegram",color="darkgreen",style="dashed",fillcolor="white"]
+    gf [label="Google Function",color="darkgreen",style="dashed",fillcolor="white"]
+    py [label="Python Script",color="darkgreen",style="dashed",fillcolor="white"]
+    fsize [label="File Size",shape="diamond",color="darkgreen",style="dashed",fillcolor="white"]
+    gdr [label="Google Drive",color="darkgreen",style="dashed",fillcolor="white"]
+    dload [label="Direct Upload",color="darkgreen",style="dashed",fillcolor="white"]
+
+    /* Relationships */
+    subgraph cluster0 {
+        style="filled,dashed";
+        color="lightgray";
+        node[style="filled,dashed",fillcolor="white"];   
+        gf -> py -> fsize [color="darkgreen",style="dashed"];
+    }
+
+    u1 -> t1 [color="darkgreen",style="dashed"];
+    t1 -> gf [label="URL",color="darkgreen",style="dashed"];
+    fsize -> gdr [label=">30mb",color="darkgreen",style="dashed"]
+    gdr -> u1 [label="Link to\nGDrive",color="darkgreen",style="dashed"]
+
+    fsize -> dload [label="<30mb",color="darkgreen",style="dashed"]
+    dload -> u1 [label="Audio\nFile",color="darkgreen",style="dashed"]
+
+    #TODO: shortcut for now
+    py -> dload [label="shortcut",color="gold3",style="dashed"]
+
+    /* Ranks */
+    { rank=min; u1 };
+#    { rank=max; gdr dload}
+}
