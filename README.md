@@ -1,7 +1,7 @@
 # u2ber
 Downloading audio from online video on the go. For example: you are watching some music on popular website and you like the music there - share this link with this app and receive back an audio file which you can listen at any point of time. 
 
-# How it work (will work)
+# How does it work (will work)
 
 ![Diagram](diagram.svg)
 
