@@ -22,10 +22,10 @@ digraph G {
 
     u1 -> t1 [color="darkgreen",style="dashed"];
     t1 -> gf [label="URL",color="darkgreen",style="dashed"];
-    fsize -> gdr [label=">30mb",color="darkgreen",style="dashed"]
+    fsize -> gdr [label=">50mb",color="darkgreen",style="dashed"]
     gdr -> u1 [label="Link to\nGDrive",color="darkgreen",style="dashed"]
 
-    fsize -> dload [label="<30mb",color="darkgreen",style="dashed"]
+    fsize -> dload [label="<50mb",color="darkgreen",style="dashed"]
     dload -> u1 [label="Audio\nFile",color="darkgreen",style="dashed"]
 
     #TODO: shortcut for now

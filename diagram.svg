@@ -92,14 +92,14 @@
 <title>fsize&#45;&gt;gdr</title>
 <path fill="none" stroke="#006400" stroke-dasharray="5,2" d="M923.943,-91.6875C953.6893,-97.9097 996.2313,-106.8085 1031.1664,-114.1161"/>
 <polygon fill="#006400" stroke="#006400" points="1030.7652,-117.6078 1041.27,-116.2295 1032.1984,-110.7561 1030.7652,-117.6078"/>
-<text text-anchor="middle" x="988.8629" y="-113.2" font-family="Times,serif" font-size="14.00" fill="#000000">&gt;30mb</text>
+<text text-anchor="middle" x="988.8629" y="-113.2" font-family="Times,serif" font-size="14.00" fill="#000000">&gt;50mb</text>
 </g>
 <!-- fsize&#45;&gt;dload -->
 <g id="edge7" class="edge">
 <title>fsize&#45;&gt;dload</title>
 <path fill="none" stroke="#006400" stroke-dasharray="5,2" d="M922.9988,-75.9874C952.9658,-69.2817 996.3863,-59.5656 1031.812,-51.6384"/>
 <polygon fill="#006400" stroke="#006400" points="1032.5796,-55.0532 1041.574,-49.4539 1031.051,-48.2222 1032.5796,-55.0532"/>
-<text text-anchor="middle" x="988.8629" y="-69.2" font-family="Times,serif" font-size="14.00" fill="#000000">&lt;30mb</text>
+<text text-anchor="middle" x="988.8629" y="-69.2" font-family="Times,serif" font-size="14.00" fill="#000000">&lt;50mb</text>
 </g>
 <!-- gdr&#45;&gt;u1 -->
 <g id="edge6" class="edge">
