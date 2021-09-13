@@ -1,14 +1,51 @@
 #based on https://github.com/ytdl-org/youtube-dl#embedding-youtube-dl
-from __future__ import unicode_literals
+from __future__ import unicode_literals #for preventing issues with unexpected symbols
 # sudo apt install python3-pip
 # pip3 install --upgrade youtube-dl
 # sudo apt-get install ffmpeg
-import youtube_dl
+import youtube_dl #for downloading video and converting it
+import argparse #for initial arguments
+import os #for getting file size
 
-ydl_opts = {'outtmpl': '%(id)s.%(ext)s'}
+parser = argparse.ArgumentParser()
+parser.add_argument('--url',default='http://www.youtube.com/watch?v=BaW_jenozKc',help="Link to Youtube video")
+args = parser.parse_args()
+outfile=""
+
+class MyLogger(object):
+    def debug(self, msg):
+        #print(msg)
+        if msg.startswith("[ffmpeg] Destination: "):
+            global outfile
+            outfile=msg[22:]
+
+    def warning(self, msg):
+        pass
+
+    def error(self, msg):
+        print(msg)
+
+def my_hook(d):
+    if d['status'] == 'finished':
+        exit
+        #print('Done downloading, now converting ...')
+        #print(d)
+
+ydl_opts = {
+    'format': 'bestaudio/best',
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
+    'outtmpl': '%(title)s-%(id)s.%(ext)s',
+    'logger': MyLogger(),
+    'progress_hooks': [my_hook],
+}
+
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     result = ydl.extract_info(
-        'http://www.youtube.com/watch?v=BaW_jenozKc',
+        args.url,
         download=False # We just want to extract the info
     )
 
@@ -21,30 +58,10 @@ else:
 
 video_url = video['webpage_url']
 
-class MyLogger(object):
-    def debug(self, msg):
-        pass
-
-    def warning(self, msg):
-        pass
-
-    def error(self, msg):
-        print(msg)
-
-def my_hook(d):
-    if d['status'] == 'finished':
-        print('Done downloading, now converting ...')
-
-ydl_opts = {
-    'format': 'bestaudio/best',
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '192',
-    }],
-    'logger': MyLogger(),
-    'progress_hooks': [my_hook],
-}
-
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     ydl.download([video_url])
+
+# get the size of file
+size = "{:.2f}".format(os.path.getsize("./"+outfile)/1024/1024)
+print(outfile)
+print(size)
