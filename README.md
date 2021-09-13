@@ -29,9 +29,8 @@ Functions can be written on Python, Node.js and other languages. Will use Python
     1. [ ] get public url
 1. [ ] register Telegram-bot and setup webhook
 1. [ ] add script for working with Telegram-bot
-    1. [ ] parsing incoming variables
+    1. [ ] parsing incoming variables, such as URL, sender and initial chat id to send the message back
     1. [ ] executing original script
+        1. [ ] adaptation for Google Functions might be required
     1. [ ] sending message back
     1. [ ] add some help menu and error handlers (if original message is not recognized) 
-
-
