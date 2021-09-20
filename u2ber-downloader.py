@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 #based on https://github.com/ytdl-org/youtube-dl#embedding-youtube-dl
 from __future__ import unicode_literals #for preventing issues with unexpected symbols
 # sudo apt install python3-pip
@@ -31,6 +33,7 @@ def my_hook(d):
         #print('Done downloading, now converting ...')
         #print(d)
 
+#TODO: check if ffmpeg can be installed/be used on Google Functions
 ydl_opts = {
     'format': 'bestaudio/best',
     'postprocessors': [{
@@ -63,5 +66,4 @@ with youtube_dl.YoutubeDL(ydl_opts) as ydl:
 
 # get the size of file
 size = "{:.2f}".format(os.path.getsize("./"+outfile)/1024/1024)
-print(outfile)
-print(size)
+print("File %s has been downloaded. Total size is %s Mb" % (outfile,size))

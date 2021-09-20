@@ -1,2 +1,8 @@
 #all downloaded mp3 files are ignored
 *.mp3
+
+#google credential file is not good to show
+client_secrets*.json
+
+#saved session
+creds.json
