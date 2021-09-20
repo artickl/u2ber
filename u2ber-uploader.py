@@ -8,7 +8,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--user_id',default='123',help="Telegram User ID for keeping files in separate folder")
 parser.add_argument('--file',default='The Fart Limit #shorts-suwg7-y70FQ.mp3',help="Output file to upload to Google Drive")
 parser.add_argument('--root',default='1H87w9gaG_g-RnXo8TiGKp-KJIkcki73E',help="Root folder where other folders will be placed")
-parser.add_argument('--config',default='u2ber-folders.json',help="File with existing ")
 args = parser.parse_args()
 
 #google drive auth with saving locally

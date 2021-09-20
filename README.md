@@ -19,14 +19,41 @@ Message back to the original chat will be passed via direct [sendAudio](https://
 
 Functions can be written on Python, Node.js and other languages. Will use Python 3.7 for this project.
 
+# Downloading
+
+Downloading script is taking link to any youtube video and providing file location and size:
+```
+$ ./u2ber-downloader.py --help
+usage: u2ber-downloader.py [-h] [--url URL]
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --url URL   Link to Youtube video
+```
+
+# Uploading
+
+Uploading script is taking Telegram User ID to keep files for each user separately on Google Drive, file to upload there. Plus all folders are stored in single root location which can be specified in parameters.
+```
+$ ./u2ber-uploader.py --help
+usage: u2ber-uploader.py [-h] [--user_id USER_ID] [--file FILE] [--root ROOT]
+                         [--config CONFIG]
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --user_id USER_ID  Telegram User ID for keeping files in separate folder
+  --file FILE        Output file to upload to Google Drive
+  --root ROOT        Root folder where other folders will be placed
+```
+
 # TODO:
-1. [ ] create Python local script with minimal scope
-    1. [ ] receive url
-    1. [ ] download file
-    1. [ ] provide audio file in highest quality 
-1. [ ] create Google Function
-    1. [ ] upload script
-    1. [ ] get public url
+1. [x] create Python local script with minimal scope
+    1. [x] receive url
+    1. [x] download file
+    1. [x] provide audio file in highest quality 
+1. [x] create Google Function
+    1. [x] upload script
+    1. [x] get public url
 1. [ ] register Telegram-bot and setup webhook
 1. [ ] add script for working with Telegram-bot
     1. [ ] parsing incoming variables, such as URL, sender and initial chat id to send the message back
