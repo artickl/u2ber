@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+#DONE
+
 #based on https://github.com/ytdl-org/youtube-dl#embedding-youtube-dl
 from __future__ import unicode_literals #for preventing issues with unexpected symbols
 # sudo apt install python3-pip

@@ -13,17 +13,21 @@ args = parser.parse_args()
 #google drive auth with saving locally
 #TODO: not sure if this will work remotely or we will need to place the settings.yaml + clients_secrets.json + creds.json
 gauth = GoogleAuth()     
-gauth.CommandLineAuth()
+gauth.LocalWebserverAuth()
+#gauth.CommandLineAuth()
+# service account from local file
+##gauth.LocalWebserverAuth() # client_secrets.json need to be in the same directory as the script
 drive = GoogleDrive(gauth)
 
 #checking if folder for the user already exist and getting id for it
-folder_id = ''
-
 file_list = drive.ListFile({'q': "'"+args.root+"' in parents and trashed=false"}).GetList()
 for file in file_list:
+    print('Title: %s, ID: %s' % (file['title'], file['id']))
     if(file['title'] == args.user_id):
         folder_id = file['id']
         break
+
+exit
 
 #creating a new folder if no folder has been found
 if (folder_id == ""):
