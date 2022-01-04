@@ -7,9 +7,9 @@ digraph G {
     u1 [label="User",shape="star",color="darkgreen",style="dashed",fillcolor="white"]
     t1 [label="Telegram",color="darkgreen",style="dashed",fillcolor="white"]
     gf [label="Google Function",color="darkgreen",style="dashed",fillcolor="white"]
-    py [label="Python Script",color="darkgreen",style="dashed",fillcolor="white"]
+    py [label="Python Script",color="darkgreen",style="#dashed",fillcolor="white"]
     fsize [label="File Size",shape="diamond",color="darkgreen",style="dashed",fillcolor="white"]
-    gdr [label="Google Drive",color="darkgreen",style="dashed",fillcolor="white"]
+    gdr [label="Google Drive",color="darkgreen",style="#dashed",fillcolor="white"]
     dload [label="Direct Upload",color="darkgreen",style="dashed",fillcolor="white"]
 
     /* Relationships */
@@ -30,6 +30,7 @@ digraph G {
 
     #TODO: shortcut for now
     py -> dload [label="shortcut",color="gold3",style="dashed"]
+    py -> gdr [label="shortcut",color="gold3",style="#dashed"]
 
     /* Ranks */
     { rank=min; u1 };
