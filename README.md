@@ -31,6 +31,15 @@ optional arguments:
   --url URL   Link to Youtube video
 ```
 
+Requirements:
+```
+$ pip install -r requirements.txt
+```
+or 
+```
+$ pip install --upgrade --force-reinstall "git+https://github.com/ytdl-org/youtube-dl.git"
+```
+
 # Uploading
 
 Uploading script is taking Telegram User ID to keep files for each user separately on Google Drive, file to upload there. Plus all folders are stored in single root location which can be specified in parameters.
