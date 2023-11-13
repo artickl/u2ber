@@ -23,8 +23,8 @@ Functions can be written on Python, Node.js and other languages. Will use Python
 
 Downloading script is taking link to any youtube video and providing file location and size:
 ```
-$ ./u2ber-downloader.py --help
-usage: u2ber-downloader.py [-h] [--url URL]
+$ ./u2ber_downloader.py --help
+usage: u2ber_downloader.py [-h] [--url URL]
 
 optional arguments:
   -h, --help  show this help message and exit
@@ -44,8 +44,8 @@ $ pip install --upgrade --force-reinstall "git+https://github.com/ytdl-org/youtu
 
 Uploading script is taking Telegram User ID to keep files for each user separately on Google Drive, file to upload there. Plus all folders are stored in single root location which can be specified in parameters.
 ```
-$ ./u2ber-uploader.py --help
-usage: u2ber-uploader.py [-h] [--user_id USER_ID] [--file FILE] [--root ROOT]
+$ ./u2ber_uploader.py --help
+usage: u2ber_uploader.py [-h] [--user_id USER_ID] [--file FILE] [--root ROOT]
                          [--config CONFIG]
 
 optional arguments:
