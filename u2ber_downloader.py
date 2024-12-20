@@ -28,14 +28,24 @@ def my_hook(d):
 def u2ber_download(url, folder):
     ydl_opts = {
         'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
+        'writethumbnail': True,
+        'postprocessors': [
+            {
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            },{
+                'key': 'FFmpegMetadata',
+                'add_metadata': True,
+            },
+            {
+                'key': 'EmbedThumbnail',
+            },
+        ],
         'outtmpl': '%(title)s-%(id)s.%(ext)s',
         'logger': MyLogger(),
         'progress_hooks': [my_hook],
+        'verbose': True,
     }
 
     ydl_opts['outtmpl'] = folder+"/"+ydl_opts['outtmpl']
