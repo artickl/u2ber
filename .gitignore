@@ -1,4 +1,5 @@
 #all downloaded mp3 files are ignored
+download/
 *.mp3
 
 #google credential file is not good to show

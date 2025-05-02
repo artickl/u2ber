@@ -2,16 +2,18 @@
 
 #based on https://github.com/ytdl-org/youtube-dl#embedding-youtube-dl
 from __future__ import unicode_literals #for preventing issues with unexpected symbols
-import youtube_dl #pip install --upgrade --force-reinstall "git+https://github.com/ytdl-org/youtube-dl.git"
+import yt_dlp # python3 -m pip install -U "yt-dlp[default]"
 import argparse #for initial arguments
 import os #for getting file size
 
 class MyLogger(object):
     def debug(self, msg):
         #print(msg)
-        if msg.startswith("[ffmpeg] Destination: "):
+        # will be good to use '--print after_move:filepath' somehow from https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#output-template
+        lookupmessage = "[ExtractAudio] Destination: "
+        if msg.startswith(lookupmessage):
             global outfile
-            outfile=msg[22:]
+            outfile=msg[len(lookupmessage):]
 
     def warning(self, msg):
         pass
@@ -36,7 +38,6 @@ def u2ber_download(url, folder):
                 'preferredquality': '192',
             },{
                 'key': 'FFmpegMetadata',
-                'add_metadata': True,
             },
             {
                 'key': 'EmbedThumbnail',
@@ -50,7 +51,7 @@ def u2ber_download(url, folder):
 
     ydl_opts['outtmpl'] = folder+"/"+ydl_opts['outtmpl']
     
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         result = ydl.extract_info(
             url,
             download=False # We just want to extract the info
@@ -65,7 +66,7 @@ def u2ber_download(url, folder):
     
     video_url = video['webpage_url']
     
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
     
     # get the size of file
